@@ -27,7 +27,7 @@ Este bot usa [node.js](https://nodejs.org) como motor. Necesitarás instalar al 
 Será tan sencillo como crear un archivo `.env` donde añadas tu token, quedando tal que:
 
 ```json
-token: "tu token"
+token = "tu token"
 ```
 
 ⚠️ **Nota: En el .env no se usan comillas, pon tu token sin comillas.** 
