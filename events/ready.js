@@ -6,7 +6,7 @@ module.exports = {
     name: 'ready',
     execute(client) {
         mongoose
-      .connect(process.env.mongoURL, {
+      .connect(config.mongoURL, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
       })
