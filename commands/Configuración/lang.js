@@ -1,5 +1,4 @@
-const { SlashCommandBuilder } = require('@discordjs/builders')
-const { MessageEmbed } = require('discord.js')
+const { EmbedBuilder, SlashCommandBuilder} = require('discord.js')
 const config = require('../../config.json')
 const guildModel = require('../../models/guild.js')
 
