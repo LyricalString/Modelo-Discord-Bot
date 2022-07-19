@@ -1,14 +1,13 @@
-const { SlashCommandBuilder } = require('@discordjs/builders')
-const { MessageActionRow, MessageSelectMenu } = require('discord.js')
+const { ActionRowBuilder, SelectMenuBuilder, SlashCommandBuilder} = require('discord.js')
 
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('sesiones')
         .setDescription('Crea una sesión de una aplicación dentro de Discord.'),
     async run(client, interaction, language) {
-        const row = new MessageActionRow()
+        const row = new ActionRowBuilder()
         .addComponents(
-            new MessageSelectMenu()
+            new SelectMenuBuilder()
             .setCustomId('sesiones')
             .setPlaceholder('Aplicación')
             .addOptions([

@@ -1,10 +1,10 @@
-const {Client, Intents, Collection} = require('discord.js')
+const { Client, GatewayIntentBits, Collection} = require('discord.js')
 require('dotenv').config()
 const config = require('./config.json')
 const { join } = require('path')
 const { setInterval } = require('timers')
 
-const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_VOICE_STATES]})
+const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildVoiceStates]})
 
 client.commands = new Collection()
 client.selectMenus = new Collection()
