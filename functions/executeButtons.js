@@ -5,9 +5,10 @@ const config = require('../config.json')
  * @param {import('discord.js').ChatInputCommandInteraction} interaction 
  */
 module.exports = async (client, interaction) => {
-    const command = client.commands.get(interaction.commandName)
+    const buttonId = interaction.customId
+    const button= client.buttons.get(buttonId)
 
-    if (!command) return
+    if (!button) return
 
     const Guild = interaction.member.guild
 
@@ -26,7 +27,7 @@ module.exports = async (client, interaction) => {
 
     try {
         const language = interaction.member.guild.lang
-        await command.run(client, interaction, language)
+        await button.run(client, interaction, language)
     } catch (e) {
         console.error(e)
         return interaction.reply({ content: 'Ha surgido un error al ejecutar el comando.' })

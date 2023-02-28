@@ -7,7 +7,7 @@ Este proyecto es el resultado de mi curso en <a href="https://www.youtube.com/wa
 
 [![⭐ GitHub](https://img.shields.io/github/stars/LyricalString/Modelo-Discord-Bot.svg?style=social&label=Stars&style=flat)](https://github.com/LyricalString/Modelo-Discord-Bot/stargazers)
 [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=LyricalString_Modelo-Discord-Bot&metric=ncloc)](https://sonarcloud.io/dashboard?id=LyricalString_Modelo-Discord-Bot)
-[![](https://img.shields.io/badge/discord.js-v13.0.0--dev-blue.svg?logo=npm)](https://github.com/discordjs)
+[![](https://img.shields.io/badge/discord.js-v14.7.1--dev-blue.svg?logo=npm)](https://github.com/discordjs)
 [![DevServer](https://discordapp.com/api/guilds/834440041010561074/widget.png?style=shield)](https://discord.gg/SbsFVV5dNG)
 [![](https://img.shields.io/github/languages/top/LyricalString/Modelo-Discord-Bot)]()
 
@@ -15,7 +15,7 @@ Este proyecto es el resultado de mi curso en <a href="https://www.youtube.com/wa
 
 
 ## 🛠️ Características:
-Pensando en el futuro, este bot está completamente preparado para el futuro, donde no se podrá leer el contenido de los mensajes de Discord. Por eso, usa interacciones (slash commands y menús) para poder ser usado.
+Pensando en el futuro, este bot está completamente preparado para el futuro, donde no se podrá leer el contenido de los mensajes de Discord. Por eso, usa interacciones (slash commands, menús y botones) para poder ser usado.
 
 
 ## 🚀 Instalación
@@ -24,41 +24,49 @@ Este bot usa [node.js](https://nodejs.org) como motor. Necesitarás instalar al 
 
 ## ⚙️ Configuración 
 
-Será tan sencillo como crear un archivo `.env` donde añadas tu token, quedando tal que:
+Será tan sencillo como renombrar el archivo `.env.example`  a `.env` y llenar lo campos, quedando tal que:
 
-```json
-token = "tu token"
+```.env
+# Cambia el nombre de este archivo a ".env"
+
+
+# Token de tu bot, lo puedes encontrar aqui: https://discord.com/developers/applications
+token=ODgwMDE1NjM1Ndjsklajildjslajdkasjdbnjaskbi231b321
+
+# tu URL de tu cluster en MongoDB: https://www.mongodb.com
+mongoURL=mongodb+srv://usuario23:ghkldfhlkgdf@cluster0.qdznh.mongodb.net/BotCurso
 ```
 
 ⚠️ **Nota: En el .env no se usan comillas, pon tu token sin comillas.** 
+⚠️ **Nota: La información colocada en el .env es una información delicada, no la compartas con nadie!**
 
-Luego, deberás de crear un archivo `config.json` donde añadas la siguiente información:
+Luego, deberás llenar de igual forma el archivo `config.json` donde añadirás la siguiente información:
 
 ```json
 {
-    "token": "tu token",
     "clientId": "id del bot",
     "guildId": "id del servidor",
+    "defaultLanguage": "es",
     "defaultSuccessColor": "color para los embeds exitosos",
-    "defaultErrorColor": "color para los embeds de errores",
-    "mongoURL": "URL de la base de datos Mongo"
+    "defaultErrorColor": "color para los embeds de errores"
 }
 
 EJEMPLO: 
 
 {
-    "token": "ODgwMDE1NjM1Ndjsklajildjslajdkasjdbnjaskbi231b321",
-    "clientId": "880015625485260821",
-    "guildId": "623324757975816206",
-    "defaultSuccessColor": "WHITE",
-    "defaultErrorColor": "RED",
-    "mongoURL": "mongodb+srv://usuario23:ghkldfhlkgdf@cluster0.qdznh.mongodb.net/BotCurso"
+    "clientId": "828771710676500502",
+    "guildId": "834440041010561074",
+    "defaultLanguage": "es",
+    "defaultSuccessColor": "#00F000",
+    "defaultErrorColor": "#FF0000"
 }
+
 ```
 
 🚨 **Notas:**
 * Para obtener la URL de Mongo, podeis revisar [este video](https://www.youtube.com/watch?v=Mo2h7FyAF8k&list=PLT2usuNCFnxWiv9DafkEu0RZcGYgADal7&index=6)
-* El guildId se usa en caso de que en slashcommands.js quieras publicarlos en un único servidor. De lo contrario, deberás de cmabiar el método de "Routes.applicationGuildCommands" en la línea 21 de slashcommands.js a "Routes.applicationCommands" y a su vez quitarle el parámetro de guildId. De esta manera se publicarán para todo el bot.
+* El guildId se usa en caso de que en slashcommands.js quieras publicarlos en un único servidor. De lo contrario, dejalo vacio de esta manera se publicarán para todo el bot.
+* Si quieres agregas más idiomas recuerda añadirlo en el archivo `bot.js` línea `15` y luego crear un archivo `.json` en la carpeta de `/locales`
 
 
 

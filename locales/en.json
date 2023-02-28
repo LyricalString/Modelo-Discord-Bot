@@ -18,5 +18,20 @@
 		"noChannel": "You need to be on a voice channel in order to execute this command.",
 		"loading": "Loading Youtube Together...",
 		"inviteMessage": "**[Click here]({inviteLink} 'Youtube Link')**"
-	}
+	},
+	"sessions": {
+		"reply": "Select an application to start the shared session."
+		},
+	"status": {
+		"getting": "Getting Status...",
+		"embedAuthor": "Status of: {username}",
+		"performance": "Performance",
+		"system": "System",
+		"os": "OS",
+		"users": "Users",
+		"servers": "Servers",
+		"hostTime": "Host Uptime",
+		"botTime": "Bot Uptime",
+		"session": "Last Start"
+		}
 }

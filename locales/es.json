@@ -18,5 +18,20 @@
 		"noChannel": "Necesitas estar en un canal de voz para ejecutar este comando.",
 		"loading": "Iniciando sesión de Youtube Together...",
 		"inviteMessage": "**[Haz click aquí]({inviteLink} 'Enlace de Youtube')**"
+	},
+	"sessions": {
+		"reply": "Selecciona una aplicación para iniciar la sesión compartida."
+	},
+	"status": {
+		"getting": "Obteniendo estado...",
+		"embedAuthor": "Estado de: {username}",
+		"performance": "Rendimiento",
+		"system": "Sistema",
+		"os": "Sistema Operativo",
+		"users": "Usuarios",
+		"servers": "Servidores",
+		"hostTime": "Tiempo de actividad del host",
+		"botTime": "Tiempo de actividad del bot",
+		"session": "Último Inicio"
 	}
 }

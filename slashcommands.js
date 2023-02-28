@@ -1,9 +1,11 @@
 const fs = require('fs')
 const { REST } = require('@discordjs/rest')
 const { Routes } = require('discord-api-types/v9')
-const { clientId, guildId, token } = require('./config.json')
+const { clientId, guildId } = require('./config.json')
+require('dotenv').config()
+require('colors')
 
-const rest = new REST({ version: '9'}).setToken(token)
+const rest = new REST({ version: '9'}).setToken(process.env.token)
 
 createSlash()
 
@@ -17,11 +19,21 @@ async function createSlash() {
                 commands.push(command.data.toJSON())
             }
         })
-        await rest.put(
-            Routes.applicationGuildCommands(clientId, guildId),
-            { body: commands }
-        )
-        console.log('Se han publicado los slash commands.')
+        if(guildId) {
+            await rest.put(
+                Routes.applicationGuildCommands(clientId, guildId),
+                { body: commands }
+            )
+            console.log(`[✅] Se han publicado los slash commands para el serverId: ${guildId}` .blue)
+        } else {
+            await rest.put(
+                Routes.applicationCommands(clientId),
+                { body: commands }
+            )
+            console.log('[✅] Se han publicado los slash commands Globalmente.' .blue)
+        }
+        
+        
     } catch(e) {
         console.error(e)
     }

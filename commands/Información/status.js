@@ -11,7 +11,7 @@ module.exports = {
         .setName('status')
         .setDescription('Devuelve el estado del bot.'),
     async run(client, interaction, language) {
-        await interaction.reply({ content: 'Obteniendo estado...' })
+        await interaction.reply({ content: client.languages.__({ phrase: 'status.getting', locale: language }) })
         let cpuUsage
         const cpu = osu.cpu
 
@@ -37,26 +37,26 @@ module.exports = {
     
             const statusEmbed = new EmbedBuilder()
                 .setColor(config.defaultSuccessColor)
-                .setAuthor({ name: `Estado de: ${client.user.username}`})
+                .setAuthor({ name: client.languages.__mf({ phrase: 'status.embedAuthor', locale: language }, { username: client.user.username})})
                 .setThumbnail(client.user.displayAvatarURL({ format: 'png', dynamic: true, size: 4096 }))
                 .addFields(
                     {
-                        name: 'Rendimiento',
+                        name: client.languages.__({ phrase: 'status.performance', locale: language }),
                         value: "```" + `RAM: ${diagramMaker(usedRAM, freeRAM)} [${Math.round((100 * usedRAM / (usedRAM + freeRAM)))}%]\nCPU: ${diagramMaker(cpuUsage, 100 - cpuUsage)} [${Math.round(cpuUsage)}%]` + "```",
                         inline: false
                     },
                     {
-                        name: 'Sistema',
+                        name: client.languages.__({ phrase: 'status.system', locale: language }),
                         value: "```" + `Procesador\nIntel ${(os.totalmem() / 1024 / 1024 / 1024).toFixed(2)} GB` + "```",
                         inline: false
                     },
                     {
-                        name: 'Sistema Operativo',
+                        name: client.languages.__({ phrase: 'status.os', locale: language }),
                         value: "```" + `${os.type} ${os.release} ${os.arch}` + "```",
                         inline: false   
                     },
                     {
-                        name: 'Usuarios',
+                        name: client.languages.__({ phrase: 'status.users', locale: language }),
                         value: "```" + `${totalMembers}` + "```",
                         inline: true
                     },
@@ -66,22 +66,22 @@ module.exports = {
                         inline: true
                     },
                     {
-                        name: 'Servidores',
+                        name: client.languages.__({ phrase: 'status.servers', locale: language }),
                         value: "```" + `${totalGuilds}` + "```",
                         inline: true
                     },
                     {
-                        name: 'Tiempo de actividad del host',
+                        name: client.languages.__({ phrase: 'status.hostTime', locale: language }),
                         value: "```" + `${moment.duration(os.uptime * 1000).format(`D [Días], H [Horas], m [Minutos], s [Segundos]`)}` + "```",
                         inline: false
                     },
                     {
-                        name: 'Tiempo de actividad del bot',
+                        name: client.languages.__({ phrase: 'status.botTime', locale: language }),
                         value: "```" + `${moment.duration(client.uptime).format(`D [Días], H [Horas], m [Minutos], s [Segundos]`)}` + "```",
                         inline: true
                     },
                     {
-                        name: 'Último Inicio',
+                        name: client.languages.__({ phrase: 'status.session', locale: language }),
                         value: "```" + `${moment(client.readyAt).format("DD [de] MMM YYYY HH:mm")}` + "```",
                         inline: true
                     }
