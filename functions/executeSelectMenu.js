@@ -1,4 +1,5 @@
 const guildModel = require('../models/guild.js')
+const config = require('../config.json')
 
 module.exports = async (client, interaction) => {
     const commandName = interaction.message.interaction.commandName
@@ -16,7 +17,7 @@ module.exports = async (client, interaction) => {
         } else {
             const newGuild = new guildModel({
                 guildId: interaction.guildId.toString(),
-                lang: 'es'
+                lang: config.defaultLanguage
             })
             newGuild.save().catch(e => console.log(e))
         }

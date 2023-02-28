@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
-const config = require('../config.json');
-requrie('colors');
+mongoose.set('strictQuery', false);
+require('colors');
 
 module.exports = {
     name: 'ready',
@@ -25,6 +25,6 @@ module.exports = {
         console.log(err);
       });
 
-        console.log(`${client.user.tag} esta listo para usarse!`)
+        console.log(`${client.user.tag} esta listo para usarse!` .blue)
     }
 }

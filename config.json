@@ -1,0 +1,7 @@
+{
+    "clientId": "id del bot",
+    "guildId": "id del servidor",
+    "defaultLanguage": "es",
+    "defaultSuccessColor": "#00F000",
+    "defaultErrorColor": "#FF0000"
+}
